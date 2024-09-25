@@ -3,8 +3,10 @@ import Image from "next/image";
 import { auth } from "@/auth";
 import Logout from "./auth/Logout";
 
+
 const Navbar = async ({ sideMenu }) => {
-  const session = await auth;
+  const session = await auth();
+  
   return (
     <nav>
       <Link href="/">
