@@ -16,4 +16,4 @@ const ratingSchema = new Schema({
 });
 
 
-export const ratingModel = mongoose.models.ratings ?? mongoose.model("ratings", ratingSchema);
+export const ratingModel = mongoose.models?.ratings ?? mongoose.model("ratings", ratingSchema);

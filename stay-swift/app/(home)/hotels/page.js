@@ -15,7 +15,7 @@ const HotelListPage = ({
       <section className="py-12">
         <div className="container grid grid-cols-12">
           <Filter />
-          <HotelList />
+          <HotelList destination={destination} checkin={checkin} checkout={checkout} />
         </div>
       </section>
     </>
