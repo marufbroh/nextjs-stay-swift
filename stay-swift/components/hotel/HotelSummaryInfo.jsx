@@ -4,8 +4,9 @@ import HotelReviewNumber from "./HotelReviewNumber";
 
 const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
   let params = "";
-  if(checkin && checkout){
-    params = `?checkin=${checkin}&checkout=${checkout}`
+  
+  if (checkin && checkout) {
+    params = `?checkin=${checkin}&checkout=${checkout}`;
   }
   // console.log(info);
   return (
@@ -19,10 +20,10 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
         <p>📍 {info?.city}</p>
         <div className="flex gap-2 items-center my-4">
           <HotelRating id={info?.id} />
-          <HotelReviewNumber id={info?.id}/>
-          {
-            info?.isBooked && <span className="bg-red-500 p-1 rounded">Sold Out</span>
-          }
+          <HotelReviewNumber id={info?.id} />
+          {info?.isBooked && (
+            <span className="bg-red-500 p-1 rounded">Sold Out</span>
+          )}
         </div>
         <div>
           <span className="bg-yellow-300 p-1 rounded-md">
@@ -36,10 +37,32 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
           ${(info?.highRate + info?.lowRate) / 2}/night
         </h2>
         <p className="text-right">Per Night for 1 Rooms</p>
-        {fromListPage ? (
-          <Link href={`/hotels/${info?.id}${params}`} className="btn-primary ">Details</Link>
+        {/* {fromListPage ? (
+          <Link href={`/hotels/${info?.id}${params}`} className="btn-primary ">
+            Details
+          </Link>
+        ) : info.isBooked ? (
+          <button className="btn-disabled">Booked</button>
         ) : (
-          <button className={info?.isBooked ? "btn-disabled": "btn-primary "}>{info?.isBooked ? "Booked" : "Book"}</button>
+          <Link
+            href={`/hotels/${info?.id}/payment${params}`}
+            className="btn-primary"
+          >
+            Book
+          </Link>
+        )} */}
+
+        {fromListPage ? (
+          <Link href={`/hotels/${info?.id}${params}`} className="btn-primary ">
+            Details
+          </Link>
+        ) : (
+          <Link
+            href={info?.isBooked ? "#" : `/hotels/${info?.id}/payment${params}`}
+            className={info?.isBooked ? "btn-disabled" : "btn-primary"}
+          >
+            Book
+          </Link>
         )}
       </div>
     </>
