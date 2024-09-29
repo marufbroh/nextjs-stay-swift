@@ -17,20 +17,12 @@ const BookingsPage = async () => {
 
   // console.log(bookings);
 
-  // const pastBookings = bookings.filter(booking => {
-  //   return (new Date().getDate() > new Date(booking.checkin).getTime())
-  // });
-
-  // const upcomingBookings = bookings.filter(booking => {
-  //   return (new Date().getDate() < new Date(booking.checkin).getTime())
-  // });
-
   const pastBookings = bookings.filter(booking => {
-    return new Date() > new Date(booking.checkin);
+    return (new Date().getTime() > new Date(booking.checkin).getTime())
   });
-  
+
   const upcomingBookings = bookings.filter(booking => {
-    return new Date() < new Date(booking.checkin);
+    return (new Date().getTime() < new Date(booking.checkin).getTime())
   });
 
   // console.log(pastBookings);
