@@ -28,7 +28,7 @@ const HotelListPage = ({
         </div>
       </section>
       <section className="py-12">
-        <div className="container grid grid-cols-12">
+        <div className="container grid lg:grid-cols-12 gap-y-4">
           <Filter />
           <HotelList
             destination={destination}

@@ -18,7 +18,7 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
           {info?.name}
         </h2>
         <p>📍 {info?.city}</p>
-        <div className="flex gap-2 items-center my-4">
+        <div className="lg:flex gap-2 items-center my-4">
           <HotelRating id={info?.id} />
           <HotelReviewNumber id={info?.id} />
           {info?.isBooked && (
