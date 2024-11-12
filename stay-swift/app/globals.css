@@ -11,8 +11,12 @@
     @apply h-[35px] md:h-[40px] lg:h-[50px];
   }
   nav ul {
-    @apply hidden md:flex items-center gap-6;
+    @apply hidden lg:flex items-center gap-2 lg:gap-6;
   }
+
+  /* nav ul li {
+    @apply hover:underline;
+  } */
 
   nav ul .login {
     @apply bg-primary px-6 py-3 text-white font-bold rounded-md;

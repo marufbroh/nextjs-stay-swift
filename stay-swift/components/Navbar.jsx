@@ -20,7 +20,7 @@ const Navbar = async ({ sideMenu }) => {
 
       {sideMenu && (
         <ul>
-          <li>
+          {/* <li>
             <Link href="#">Recommended Places</Link>
           </li>
 
@@ -30,16 +30,16 @@ const Navbar = async ({ sideMenu }) => {
 
           <li>
             <Link href="#">Contact us</Link>
-          </li>
+          </li> */}
 
-          <li>
+          <li className="hover:underline hover:text-primary">
             <Link href="/bookings">Bookings</Link>
           </li>
 
           <li>
             {session?.user ? (
               <div className="space-x-2">
-                <span>{session?.user?.name}</span>
+                <span>Hello, {session?.user?.name}</span>
                 <span> | </span>
                 <Logout />
               </div>

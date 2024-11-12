@@ -1,7 +1,8 @@
-import { Inter } from "next/font/google";
-import "../globals.css";
 import Navbar from "@/components/Navbar";
 import { dbConnect } from "@/service/mongo";
+import { Inter } from "next/font/google";
+import { Toaster } from 'sonner';
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +16,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster position="top-center" />
         <Navbar sideMenu={true} />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );
