@@ -27,6 +27,4 @@
 
 ## Acknowledgements
 
-I would like to extend my heartfelt thanks to **LWS and Tapas Adhikary** for providing an excellent learning resource that guided me in building this project. The tutorials and insights from LWS were invaluable in helping me develop and enhance my skills throughout the process. 🙏
-
-Check out LWS for more amazing web development content and tutorials.
+I would like to extend my heartfelt thanks to **LWS and Tapas Adhikary** for providing an excellent learning resource that guided me in building this project. The tutorials and insights from LWS were invaluable in helping me develop and enhance my skills throughout the process.

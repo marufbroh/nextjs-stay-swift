@@ -1,13 +1,10 @@
 import NextAuth from "next-auth";
-// import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { userModel } from "./models/user-model";
-// import client from "./database/mongoClientPromise";
 import bcrypt from "bcryptjs";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  // adapter: MongoDBAdapter(client),
   session: {
     strategy: "jwt",
   },
@@ -24,7 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const user = await userModel.findOne({ email: credentials.email });
           // console.log({user});
           if (user) {
-            console.log("I am here");
+            // console.log("I am here");
             const isMatch = await bcrypt.compare(
               credentials.password,
               user.password
