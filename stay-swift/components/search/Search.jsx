@@ -15,20 +15,39 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
 
   const [allowSearch, setAllowSearch] = useState(true);
 
-  const handleInputs = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+  // const handleInputs = (e) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
 
-    const state = { ...searchTerm, [name]: value };
-    if (
-      new Date(state.checkin).getTime() > new Date(state.checkout).getTime()
-    ) {
+  //   const state = { ...searchTerm, [name]: value };
+  //   if (
+  //     new Date(state.checkin).getTime() > new Date(state.checkout).getTime()
+  //   ) {
+  //     setAllowSearch(false);
+  //   } else {
+  //     setAllowSearch(true);
+  //   }
+
+  //   setSearchTerm(state);
+  // };
+
+
+  const handleInputs = (e) => {
+    const { name, value } = e.target;
+  
+    const newState = { ...searchTerm, [name]: value };
+    const checkinDate = new Date(newState.checkin).getTime();
+    const checkoutDate = new Date(newState.checkout).getTime();
+    const today = new Date().setHours(0, 0, 0, 0); // sets today's date at midnight
+  
+    // Ensures that check-in is not a past date, and check-in is before checkout
+    if (checkinDate < today || checkinDate > checkoutDate) {
       setAllowSearch(false);
     } else {
       setAllowSearch(true);
     }
-
-    setSearchTerm(state);
+  
+    setSearchTerm(newState);
   };
 
   const doSearch = () => {
