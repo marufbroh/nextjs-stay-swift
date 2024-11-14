@@ -5,6 +5,7 @@ import { reviewModel } from "@/models/review-model";
 import { userModel } from "@/models/user-model";
 import {
   isDateInbetween,
+  isDateOverlapping,
   replaceMongoIdInArray,
   replaceMongoIdInObject,
 } from "@/utils/data-util";
@@ -63,10 +64,10 @@ const findBooking = async (hotelId, checkin, checkout) => {
     .lean();
 
   const found = matches.find((match) => {
-    return (
-      isDateInbetween(checkin, match.checkin, match.checkout) ||
-      isDateInbetween(checkout, match.checkin, match.checkout)
-    );
+    // isDateInbetween(checkin, match.checkin, match.checkout) ||
+    // isDateInbetween(checkout, match.checkin, match.checkout)
+
+    return isDateOverlapping(checkin, checkout, match.checkin, match.checkout);
   });
 
   return found;

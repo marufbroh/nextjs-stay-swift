@@ -7,8 +7,8 @@ const UpcomingBooking = ({ bookings }) => {
 
       {bookings.length > 0 &&
         bookings?.map((booking) => (
-          <div className="bg-[#F6F3E9] p-4 rounded-md">
-            <BookingCard key={booking.id} {...booking} />
+          <div  key={booking.id} className="bg-[#F6F3E9] p-4 rounded-md">
+            <BookingCard {...booking} />
           </div>
         ))}
     </div>
