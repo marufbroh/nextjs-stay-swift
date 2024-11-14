@@ -38,9 +38,8 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
     const newState = { ...searchTerm, [name]: value };
     const checkinDate = new Date(newState.checkin).getTime();
     const checkoutDate = new Date(newState.checkout).getTime();
-    const today = new Date().setHours(0, 0, 0, 0); // sets today's date at midnight
+    const today = new Date().setHours(0, 0, 0, 0);
   
-    // Ensures that check-in is not a past date, and check-in is before checkout
     if (checkinDate < today || checkinDate > checkoutDate) {
       setAllowSearch(false);
     } else {
